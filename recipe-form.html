@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add recipe | Recipe Finder</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-default="admin" data-needs="admin">
+    <header class="site-header">
+        <div class="container header-row">
+            <a class="brand" href="index.html">Recipe<span>Finder</span></a>
+            <nav class="nav" aria-label="Main navigation">
+                <a href="index.html">Home</a> <!--data-roles="guest user admin"-->
+                <a href="browse.html">Browse recipes</a> <!--data-roles="guest user admin"-->
+                <a href="favorites.html">My Favorites</a> <!--data-roles="user"-->
+                <a href="admin.html">Manage recipes</a> <!--data-roles="admin"-->
+                <a href="recipe-form.html" aria-current="page">Add recipe</a> <!--data-roles="admin"-->
+                <a href="login.html">Log in</a> <!--data-roles="guest"-->
+                <a href="signup.html">Sign up</a> <!--data-roles="guest"-->
+                <a href="index.html" data-logout>Log out</a> <!--data-roles="user admin"-->
+            </nav>
+            <div class="role-switch"><label for="role-select" style="margin:0;font-weight:400">Preview as</label>
+                <select id="role-select">
+                    <option value="guest">Guest</option>
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <form id="recipe-form" class="card-form wide" action="#" novalidate>
+            <h1 id="form-title">Add a new recipe</h1>
+            <p class="muted" id="form-id">Recipe ID is generated automatically when you save. Fields marked <span
+                    class="req">*</span> are required.</p>
+            <div id="form-msg" class="alert alert-success" role="status" hidden></div>
+            <div class="field"><label for="rname">Recipe name <span class="req">*</span></label><input id="rname"
+                    name="name" type="text" placeholder="e.g. Chicken Alfredo" required></div>
+            <div class="field"><label for="rcourse">Course <span class="req">*</span></label><select id="rcourse"
+                    name="course" required>
+                    <option value="" selected disabled>Select a course</option>
+                    <option>Appetizer</option>
+                    <option>Main Course</option>
+                    <option>Dessert</option>
+                </select></div>
+            <fieldset style="border:0;padding:0;margin:0 0 1rem">
+                <legend class="label">Ingredients <span class="req">*</span></legend>
+                <div id="ing-rows">
+                    <div class="ing-row">
+                        <div><label>Ingredient name<input name="ing_name[]" type="text" placeholder="e.g. Butter"
+                                    required></label></div>
+                        <div><label>Quantity<input name="ing_qty[]" type="text" placeholder="e.g. 2 tbsp"
+                                    required></label></div>
+                        <button class="btn btn-sm btn-secondary rm" type="button"
+                            aria-label="Remove ingredient row">Remove</button>
+                    </div>
+                </div>
+                <button id="add-ing" class="btn btn-sm btn-secondary" type="button">+ Add ingredient</button>
+            </fieldset>
+            <div class="field"><label for="rdesc">Description / instructions <span class="req">*</span></label><textarea
+                    id="rdesc" name="description" placeholder="Write the steps, one per line." required></textarea>
+                <p class="hint">Write one step per line so the recipe is easy to read.</p>
+            </div>
+            <div class="actions"><button class="btn" type="submit">Save recipe</button><a
+                    class="btn btn-secondary">Cancel</a></div>
+        </form>
+    </main>
+    <footer class="site-footer">
+        <div class="container" style="text-align: center;">Recipe Finder &middot; IS231 Web Technology</div>
+    </footer>
+    <script src="js/app.js"></script>
+</body>
+</html>

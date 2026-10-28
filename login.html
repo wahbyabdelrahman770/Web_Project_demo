@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Log in | Recipe Finder</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-default="guest">
+    <header class="site-header">
+        <div class="container header-row">
+            <a class="brand" href="index.html">Recipe<span>Finder</span></a>
+            <nav class="nav" aria-label="Main navigation">
+                <a href="index.html">Home</a> <!--data-roles="guest user admin"-->
+                <a href="browse.html">Browse recipes</a> <!--data-roles="guest user admin"-->
+                <a href="favorites.html">My Favorites</a> <!--data-roles="user"-->
+                <a href="admin.html">Manage recipes</a> <!--data-roles="admin"-->
+                <a href="recipe-form.html">Add recipe</a> <!--data-roles="admin"-->
+                <a href="login.html" aria-current="page">Log in</a> <!--data-roles="guest"-->
+                <a href="signup.html">Sign up</a> <!--data-roles="guest"-->
+                <a href="index.html" data-logout>Log out</a> <!--data-roles="user admin"-->
+            </nav>
+            <div class="role-switch"><label for="role-select" style="margin:0;font-weight:400">Preview as</label>
+                <select id="role-select">
+                    <option value="guest">Guest</option>
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <form class="card-form" data-auth action="#" novalidate>
+            <h1>Welcome back</h1>
+            <p class="muted">Fields marked <span class="req">*</span> are required.</p>
+            <div class="alert alert-danger" hidden>Incorrect email or password. Please try again.</div>
+            <div class="field"><label for="email">Email <span class="req">*</span></label><input id="email" name="email"
+                    type="email" autocomplete="email" placeholder="you@example.com" required></div>
+            <div class="field"><label for="pw">Password <span class="req">*</span></label><input id="pw" name="password"
+                    type="password" autocomplete="current-password" placeholder="Your password" required></div>
+            <!-- <div class="field"><label for="acc">Log in as <span class="req">*</span></label><select id="acc"
+                    name="account" required>
+                    <option value="user">User</option>
+                    <option value="admin">Administrator</option>
+                </select></div> -->
+            <!-- <div class="field"><label class="check"><input type="checkbox" name="remember"> Keep me logged in</label>
+            </div> -->
+            <button class="btn" type="submit" style="width:100%">Log in</button>
+            <p class="form-foot">New here? <a href="signup.html">Create an account</a></p>
+        </form>
+    </main>
+    <footer class="site-footer">
+        <div class="container" style="text-align: center;">Recipe Finder &middot; IS231 Web Technology</div>
+    </footer>
+    <script src="js/app.js"></script>
+</body>
+</html>

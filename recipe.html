@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chicken Alfredo | Recipe Finder</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-default="guest">
+    <header class="site-header">
+        <div class="container header-row">
+            <a class="brand" href="index.html">Recipe<span>Finder</span></a>
+            <nav class="nav" aria-label="Main navigation">
+                <a href="index.html">Home</a> <!--data-roles="guest user admin"-->
+                <a href="browse.html" aria-current="page">Browse recipes</a> <!--data-roles="guest user admin"-->
+                <a href="favorites.html">My Favorites</a> <!--data-roles="user"-->
+                <a href="admin.html">Manage recipes</a> <!--data-roles="admin"-->
+                <a href="recipe-form.html">Add recipe</a> <!--data-roles="admin"-->
+                <a href="login.html">Log in</a> <!--data-roles="guest"-->
+                <a href="signup.html">Sign up</a> <!--data-roles="guest"-->
+                <a href="index.html" data-logout>Log out</a> <!--data-roles="user admin"-->
+            </nav>
+            <div class="role-switch"><label for="role-select" style="margin:0;font-weight:400">Preview as</label>
+                <select id="role-select">
+                    <option value="guest">Guest</option>
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="detail-head">
+            <div><span class="badge badge-main">Main Course</span>
+                <h1 style="margin-top:.4rem">Chicken Alfredo</h1>
+                <p class="muted">Creamy pasta with grilled chicken and parmesan. Serves 4.</p>
+            </div>
+            <div class="actions">
+                <button class="btn btn-secondary" type="button" data-fav aria-pressed="false" data-roles="user admin">♡
+                    Add to favorites</button>
+            </div>
+        </div>
+        <div class="detail-grid">
+            <section class="panel" aria-labelledby="ing-h">
+                <h2 id="ing-h">Ingredients</h2>
+                <ul class="ing-list">
+                    <li><span>Chicken breast</span><span class="muted">500 g</span></li>
+                    <li><span>Fettuccine pasta</span><span class="muted">350 g</span></li>
+                    <li><span>Heavy cream</span><span class="muted">1 cup</span></li>
+                    <li><span>Parmesan, grated</span><span class="muted">3/4 cup</span></li>
+                    <li><span>Butter</span><span class="muted">2 tbsp</span></li>
+                    <li><span>Garlic cloves</span><span class="muted">3</span></li>
+                </ul>
+            </section>
+            <section class="panel" aria-labelledby="ins-h" style="height: stretch;">
+                <h2 id="ins-h">Instructions</h2>
+                <ol class="method">
+                    <li>Season the chicken with salt and pepper, then grill or pan-sear for 6&ndash;7 minutes per side.
+                        Rest, then slice.</li>
+                    <li>Boil the pasta in salted water until al dente. Drain and keep a little of the cooking water.
+                    </li>
+                    <li>Melt the butter in a large pan and cook the garlic for one minute.</li>
+                    <li>Pour in the cream and simmer for 3 minutes, then stir in the parmesan until smooth.</li>
+                    <li>Toss the pasta in the sauce, loosening with cooking water if needed. Top with the chicken and
+                        serve hot.</li>
+                </ol>
+            </section>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container" style="text-align: center;">Recipe Finder &middot; IS231 Web Technology</div>
+    </footer>
+    <script src="js/app.js"></script>
+</body>
+</html>

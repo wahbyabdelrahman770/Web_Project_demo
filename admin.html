@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Manage recipes | Recipe Finder</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-default="admin" data-needs="admin">
+    <header class="site-header">
+        <div class="container header-row">
+            <a class="brand" href="index.html">Recipe<span>Finder</span></a>
+            <nav class="nav" aria-label="Main navigation">
+                <a href="index.html">Home</a> <!--data-roles="guest user admin"-->
+                <a href="browse.html">Browse recipes</a> <!--data-roles="guest user admin"-->
+                <a href="favorites.html">My Favorites</a> <!--data-roles="user"-->
+                <a href="admin.html" aria-current="page">Manage recipes</a> <!--data-roles="admin"-->
+                <a href="recipe-form.html">Add recipe</a> <!--data-roles="admin"-->
+                <a href="login.html">Log in</a> <!--data-roles="guest"-->
+                <a href="signup.html">Sign up</a> <!--data-roles="guest"-->
+                <a href="index.html" data-logout>Log out</a> <!--data-roles="user admin"-->
+            </nav>
+            <div class="role-switch"><label for="role-select" style="margin:0;font-weight:400">Preview as</label>
+                <select id="role-select">
+                    <option value="guest">Guest</option>
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="page-head">
+            <h1>Manage recipes</h1><a class="btn" href="recipe-form.html">Add new recipe</a>
+        </div>
+        <div class="stats">
+            <div class="panel"><strong id="admin-count">6</strong><span class="muted">Total recipes</span></div>
+            <div class="panel"><strong>2</strong><span class="muted">Appetizers</span></div>
+            <div class="panel"><strong>2</strong><span class="muted">Main courses</span></div>
+            <div class="panel"><strong>2</strong><span class="muted">Desserts</span></div>
+        </div>
+        <div id="admin-msg" class="alert alert-success" role="status" hidden></div>
+        <div id="confirm-box" class="alert alert-danger" tabindex="-1" role="alertdialog" hidden>
+            <p><strong>Delete &ldquo;<span id="confirm-name"></span>&rdquo;?</strong> This cannot be undone.</p>
+            <div class="actions"><button id="confirm-yes" class="btn btn-sm btn-danger" type="button">Yes,
+                    delete</button><button id="confirm-no" class="btn btn-sm btn-secondary"
+                    type="button">Cancel</button></div>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <caption class="muted" style="text-align:left;padding:.75rem 1rem; user-select: none;">All recipes in
+                    the collection
+                </caption>
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Recipe name</th>
+                        <th scope="col">Course</th>
+                        <th scope="col">Ingredients</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="admin-rows">
+                    <tr data-name="Bruschetta">
+                        <td>R-101</td>
+                        <td>Bruschetta</td>
+                        <td><span class="badge badge-appetizer">Appetizer</span></td>
+                        <td>5</td>
+                        <td>
+                            <div class="actions"><a class="btn btn-sm btn-secondary"
+                                    href="recipe-form.html?mode=edit">Edit</a><button class="btn btn-sm btn-danger"
+                                    type="button" data-delete>Delete</button></div>
+                        </td>
+                    </tr>
+                    <tr data-name="Stuffed Mushrooms">
+                        <td>R-102</td>
+                        <td>Stuffed Mushrooms</td>
+                        <td><span class="badge badge-appetizer">Appetizer</span></td>
+                        <td>4</td>
+                        <td>
+                            <div class="actions"><a class="btn btn-sm btn-secondary"
+                                    href="recipe-form.html?mode=edit">Edit</a><button class="btn btn-sm btn-danger"
+                                    type="button" data-delete>Delete</button></div>
+                        </td>
+                    </tr>
+                    <tr data-name="Chicken Alfredo">
+                        <td>R-103</td>
+                        <td>Chicken Alfredo</td>
+                        <td><span class="badge badge-main">Main Course</span></td>
+                        <td>5</td>
+                        <td>
+                            <div class="actions"><a class="btn btn-sm btn-secondary"
+                                    href="recipe-form.html?mode=edit">Edit</a><button class="btn btn-sm btn-danger"
+                                    type="button" data-delete>Delete</button></div>
+                        </td>
+                    </tr>
+                    <tr data-name="Beef Stir Fry">
+                        <td>R-104</td>
+                        <td>Beef Stir Fry</td>
+                        <td><span class="badge badge-main">Main Course</span></td>
+                        <td>5</td>
+                        <td>
+                            <div class="actions"><a class="btn btn-sm btn-secondary"
+                                    href="recipe-form.html?mode=edit">Edit</a><button class="btn btn-sm btn-danger"
+                                    type="button" data-delete>Delete</button></div>
+                        </td>
+                    </tr>
+                    <tr data-name="Chocolate Brownies">
+                        <td>R-105</td>
+                        <td>Chocolate Brownies</td>
+                        <td><span class="badge badge-dessert">Dessert</span></td>
+                        <td>5</td>
+                        <td>
+                            <div class="actions"><a class="btn btn-sm btn-secondary"
+                                    href="recipe-form.html?mode=edit">Edit</a><button class="btn btn-sm btn-danger"
+                                    type="button" data-delete>Delete</button></div>
+                        </td>
+                    </tr>
+                    <tr data-name="Rice Pudding">
+                        <td>R-106</td>
+                        <td>Rice Pudding</td>
+                        <td><span class="badge badge-dessert">Dessert</span></td>
+                        <td>5</td>
+                        <td>
+                            <div class="actions"><a class="btn btn-sm btn-secondary"
+                                    href="recipe-form.html?mode=edit">Edit</a><button class="btn btn-sm btn-danger"
+                                    type="button" data-delete>Delete</button></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="admin-empty" class="empty" hidden>
+            <h2>No recipes yet</h2>
+            <p class="muted">Add your first recipe to start the collection.</p><a class="btn"
+                href="recipe-form.html">Add new recipe</a>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container" style="text-align: center;">Recipe Finder &middot; IS231 Web Technology</div>
+    </footer>
+    <script src="js/app.js"></script>
+</body>
+</html>
